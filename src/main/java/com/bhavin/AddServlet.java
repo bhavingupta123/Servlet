@@ -57,10 +57,15 @@ public class AddServlet extends HttpServlet{
 		
 		/*ways to send data to another servlet OR use getParameter in other servlet*/
 		
-		req.setAttribute("k",k); // --> 2
+		//req.setAttribute("k",k); // --> 2
 		
-		rDispatcher.forward(req, res);
+		//rDispatcher.forward(req, res);
 		
+		
+		
+		/*using send redirect and sending data using URL redirect*/
+		
+		res.sendRedirect("sq?k=" + k);
 		
 		
 		

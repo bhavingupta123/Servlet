@@ -41,9 +41,17 @@ public class SqServlet extends HttpServlet{
 		
 		/* other way of getting data --> 2*/
 		
-		int k = (int)request.getAttribute("k");
+		//int k = (int)request.getAttribute("k");
+		
+		//outPrintWriter.println(k*k);
+		
+		
+		/*using send redirect to fetch data by using URL redirecting*/
+		
+		int k = Integer.parseInt(request.getParameter("k"));
 		
 		outPrintWriter.println(k*k);
 		
+		System.out.println("sq called");
 	}
 }
