@@ -3,6 +3,7 @@ package com.bhavin;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -36,7 +37,6 @@ public class AddServlet extends HttpServlet{
 
 	@Override
 	public void init(ServletConfig conf) throws ServletException {
-		// TODO Auto-generated method stub
 		
 		this.conf = conf;
 		System.out.println("creating ");
@@ -44,15 +44,14 @@ public class AddServlet extends HttpServlet{
 	}
 
 	@Override
-	public void doGet(HttpServletRequest  req, HttpServletResponse  res) throws IOException {
+	public void doGet(HttpServletRequest  req, HttpServletResponse  res) throws IOException, ServletException {
 		
 		System.out.println("sadsadsaasasasasasasasd");
 		int i = Integer.parseInt(req.getParameter("num1"));
 		int j = Integer.parseInt(req.getParameter("num2"));
 		
-		PrintWriter out = res.getWriter();
-		
-		out.println("addssssss:" + (i+j) );
+		RequestDispatcher rDispatcher = req.getRequestDispatcher("sq");
+		rDispatcher.forward(req, res);
 		
 		System.out.println((i+j));
 		

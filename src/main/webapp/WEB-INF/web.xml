@@ -15,4 +15,14 @@
 		<url-pattern>/add</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>sq</servlet-name>
+		<servlet-class>com.bhavin.SqServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>sq</servlet-name>
+		<url-pattern>/sq</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
