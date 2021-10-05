@@ -9,6 +9,7 @@ import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -73,11 +74,20 @@ public class AddServlet extends HttpServlet{
 		
 		/* using session to send data */
 		
-		HttpSession session = req.getSession();
-		session.setAttribute("k",k);
+		//HttpSession session = req.getSession();
+		//session.setAttribute("k",k);
+		
+		//res.sendRedirect("sq");
+		
+		
+		
+		
+		/*using cookies to send data*/
+		
+		Cookie cookie = new Cookie("k" , k + ""); //cookie needs to be string
+		res.addCookie(cookie);
 		
 		res.sendRedirect("sq");
-		
 	}
 	
 

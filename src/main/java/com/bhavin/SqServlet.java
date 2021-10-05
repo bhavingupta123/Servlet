@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -56,12 +57,26 @@ public class SqServlet extends HttpServlet{
 		
 		/* fetching k value from session */
 		
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		
-		int k = (int)session.getAttribute("k");
+		//int k = (int)session.getAttribute("k");
+		
+		
+		
+		
+		
+		/* fetching data using cookies */
+		
+		int k = 0;
+		Cookie cookie[] =  request.getCookies(); // as can have many cookies so array
+		
+		for(Cookie c:cookie) {
+			if(c.getName().equals("k"))
+				k = Integer.parseInt(c.getValue());
+		}
 		
 		outPrintWriter.println("product:" + k*k);
 		
-		System.out.println("sq called");
+		System.out.println("sq called:" + k*k);
 	}
 }
