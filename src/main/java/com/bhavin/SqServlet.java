@@ -8,6 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class SqServlet extends HttpServlet{
 	
@@ -48,9 +49,18 @@ public class SqServlet extends HttpServlet{
 		
 		/*using send redirect to fetch data by using URL redirecting*/
 		
-		int k = Integer.parseInt(request.getParameter("k"));
+		//int k = Integer.parseInt(request.getParameter("k"));
 		
-		outPrintWriter.println(k*k);
+		
+		
+		
+		/* fetching k value from session */
+		
+		HttpSession session = request.getSession();
+		
+		int k = (int)session.getAttribute("k");
+		
+		outPrintWriter.println("product:" + k*k);
 		
 		System.out.println("sq called");
 	}

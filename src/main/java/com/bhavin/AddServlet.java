@@ -12,6 +12,7 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class AddServlet extends HttpServlet{
 	
@@ -65,9 +66,17 @@ public class AddServlet extends HttpServlet{
 		
 		/*using send redirect and sending data using URL redirect*/
 		
-		res.sendRedirect("sq?k=" + k);
+		//res.sendRedirect("sq?k=" + k);
 		
 		
+		
+		
+		/* using session to send data */
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("k",k);
+		
+		res.sendRedirect("sq");
 		
 	}
 	
