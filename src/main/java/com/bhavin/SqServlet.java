@@ -28,7 +28,22 @@ public class SqServlet extends HttpServlet{
 		
 		PrintWriter outPrintWriter = response.getWriter();
 		
-		outPrintWriter.println("mulsss");
+		/*
+		
+		One way to fetch data
+		
+		int i = Integer.parseInt(request.getParameter("num1"));
+		int j = Integer.parseInt(request.getParameter("num2"));
+		
+		*/
+		
+		
+		
+		/* other way of getting data --> 2*/
+		
+		int k = (int)request.getAttribute("k");
+		
+		outPrintWriter.println(k*k);
 		
 	}
 }

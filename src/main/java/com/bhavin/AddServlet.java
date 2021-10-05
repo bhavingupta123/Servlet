@@ -47,13 +47,22 @@ public class AddServlet extends HttpServlet{
 	public void doGet(HttpServletRequest  req, HttpServletResponse  res) throws IOException, ServletException {
 		
 		System.out.println("sadsadsaasasasasasasasd");
+		
+		RequestDispatcher rDispatcher = req.getRequestDispatcher("sq");
+		
 		int i = Integer.parseInt(req.getParameter("num1"));
 		int j = Integer.parseInt(req.getParameter("num2"));
 		
-		RequestDispatcher rDispatcher = req.getRequestDispatcher("sq");
+		int k = i +j;
+		
+		/*ways to send data to another servlet OR use getParameter in other servlet*/
+		
+		req.setAttribute("k",k); // --> 2
+		
 		rDispatcher.forward(req, res);
 		
-		System.out.println((i+j));
+		
+		
 		
 	}
 	
