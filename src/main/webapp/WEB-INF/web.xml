@@ -4,10 +4,20 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+		
+<!--	<context-param>
+    	<param-name>userid</param-name>
+    	<param-value>ABC12345</param-value>
+	</context-param>
 	
 	<servlet>
 		<servlet-name>abc</servlet-name>
 		<servlet-class>com.bhavin.AddServlet</servlet-class>
+		
+		<init-param>
+			<param-name>userid</param-name>
+    		<param-value>bhavin</param-value>
+		</init-param>
 	</servlet>
 	
 	<servlet-mapping>
@@ -25,4 +35,10 @@
 		<url-pattern>/sq</url-pattern>
 	</servlet-mapping>
 	
+	<context-param>
+		<param-name>userid</param-name>
+    	<param-value>chu</param-value>
+	</context-param>
+
+	 -->
 </web-app>

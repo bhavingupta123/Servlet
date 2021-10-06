@@ -6,15 +6,18 @@ import java.io.PrintWriter;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+@WebServlet("/add") // using annotations
 public class AddServlet extends HttpServlet{
 	
 	ServletConfig conf;
@@ -50,7 +53,7 @@ public class AddServlet extends HttpServlet{
 		
 		System.out.println("sadsadsaasasasasasasasd");
 		
-		RequestDispatcher rDispatcher = req.getRequestDispatcher("sq");
+		//RequestDispatcher rDispatcher = req.getRequestDispatcher("sq");
 		
 		int i = Integer.parseInt(req.getParameter("num1"));
 		int j = Integer.parseInt(req.getParameter("num2"));
@@ -81,13 +84,13 @@ public class AddServlet extends HttpServlet{
 		
 		
 		
-		
 		/*using cookies to send data*/
 		
 		Cookie cookie = new Cookie("k" , k + ""); //cookie needs to be string
 		res.addCookie(cookie);
 		
 		res.sendRedirect("sq");
+		
 	}
 	
 
